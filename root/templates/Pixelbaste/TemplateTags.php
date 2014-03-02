@@ -14,7 +14,7 @@ class TemplateTags {
  *
  * @return void
  */
-static function {%= prefix %}_paging_nav() {
+static function paging_nav() {
 	// Don't print empty markup if there's only one page.
 	if ( $GLOBALS['wp_query']->max_num_pages < 2 ) {
 		return;
@@ -42,7 +42,7 @@ static function {%= prefix %}_paging_nav() {
  *
  * @return void
  */
-static function {%= prefix %}_post_nav() {
+static function post_nav() {
 	// Don't print empty markup if there's nowhere to navigate.
 	$previous = ( is_attachment() ) ? get_post( get_post()->post_parent ) : get_adjacent_post( false, '', true );
 	$next     = get_adjacent_post( false, '', false );
@@ -66,7 +66,7 @@ static function {%= prefix %}_post_nav() {
 /**
  * Prints HTML with meta information for the current post-date/time and author.
  */
-static function {%= prefix %}_posted_on() {
+static function posted_on() {
 	$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
 	if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
 		$time_string .= '<time class="updated" datetime="%3$s">%4$s</time>';

@@ -23,7 +23,7 @@ get_header(); ?>
 
 			<?php endwhile; ?>
 
-			<?php \PixelBaste\TemplateTags::{%= prefix %}_paging_nav(); ?>
+			<?php \PixelBaste\TemplateTags::paging_nav(); ?>
 
 		<?php else : ?>
 

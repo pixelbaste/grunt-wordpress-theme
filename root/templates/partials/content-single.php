@@ -9,7 +9,7 @@
 		<h1 class="entry-title"><?php the_title(); ?></h1>
 
 		<div class="entry-meta">
-			<?php \PixelBaste\TemplateTags::{%= prefix %}_posted_on(); ?>
+			<?php \PixelBaste\TemplateTags::posted_on(); ?>
 		</div><!-- .entry-meta -->
 	</header><!-- .entry-header -->
 
