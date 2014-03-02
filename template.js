@@ -38,7 +38,7 @@ exports.template = function( grunt, init, done ) {
         {
             name   : 'distribution_path',
             message: 'Distribution Path',
-            default: 'dist/'
+            default: 'wptheme'
         }
 	], function( err, props ) {
 		props.keywords = [];
