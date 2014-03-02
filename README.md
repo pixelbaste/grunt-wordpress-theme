@@ -29,7 +29,7 @@ git clone https://github.com/pixelbaste/grunt-wordpress-theme.git ~/.grunt-init/
 git clone https://github.com/pixelbaste/grunt-wordpress-theme.git %USERPROFILE%/.grunt-init/wordpress-theme
 ```
 
-### Usage
+#### Usage
 
 At the command-line, cd into an empty directory, run this command and follow the prompts.
 
@@ -46,6 +46,8 @@ At your command line run the following substituting `wordpress-theme` with any d
 ```
 git clone https://github.com/pixelbaste/grunt-wordpress-theme.git wordpress-theme
 ```
+#### Usage
+
 On completion of the clone run the following and follow the prompts:
 
 ```
