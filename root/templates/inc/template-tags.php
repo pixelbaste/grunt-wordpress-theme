@@ -7,13 +7,13 @@
  * @package {%= prefix %}
  */
 
-if ( ! function_exists( 'wpstarter_paging_nav' ) ) :
+if ( ! function_exists( '{%= prefix %}_paging_nav' ) ) :
 /**
  * Display navigation to next/previous set of posts when applicable.
  *
  * @return void
  */
-function wpstarter_paging_nav() {
+function {%= prefix %}_paging_nav() {
 	// Don't print empty markup if there's only one page.
 	if ( $GLOBALS['wp_query']->max_num_pages < 2 ) {
 		return;
@@ -37,13 +37,13 @@ function wpstarter_paging_nav() {
 }
 endif;
 
-if ( ! function_exists( 'wpstarter_post_nav' ) ) :
+if ( ! function_exists( '{%= prefix %}_post_nav' ) ) :
 /**
  * Display navigation to next/previous post when applicable.
  *
  * @return void
  */
-function wpstarter_post_nav() {
+function {%= prefix %}_post_nav() {
 	// Don't print empty markup if there's nowhere to navigate.
 	$previous = ( is_attachment() ) ? get_post( get_post()->post_parent ) : get_adjacent_post( false, '', true );
 	$next     = get_adjacent_post( false, '', false );
@@ -65,11 +65,11 @@ function wpstarter_post_nav() {
 }
 endif;
 
-if ( ! function_exists( 'wpstarter_posted_on' ) ) :
+if ( ! function_exists( '{%= prefix %}_posted_on' ) ) :
 /**
  * Prints HTML with meta information for the current post-date/time and author.
  */
-function wpstarter_posted_on() {
+function {%= prefix %}_posted_on() {
 	$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
 	if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
 		$time_string .= '<time class="updated" datetime="%3$s">%4$s</time>';
@@ -98,7 +98,7 @@ endif;
 /**
  * Returns true if a blog has more than 1 category.
  */
-function wpstarter_categorized_blog() {
+function {%= prefix %}_categorized_blog() {
 	if ( false === ( $all_the_cool_cats = get_transient( 'all_the_cool_cats' ) ) ) {
 		// Create an array of all the categories that are attached to posts.
 		$all_the_cool_cats = get_categories( array(
@@ -112,20 +112,20 @@ function wpstarter_categorized_blog() {
 	}
 
 	if ( '1' != $all_the_cool_cats ) {
-		// This blog has more than 1 category so wpstarter_categorized_blog should return true.
+		// This blog has more than 1 category so {%= prefix %}_categorized_blog should return true.
 		return true;
 	} else {
-		// This blog has only 1 category so wpstarter_categorized_blog should return false.
+		// This blog has only 1 category so {%= prefix %}_categorized_blog should return false.
 		return false;
 	}
 }
 
 /**
- * Flush out the transients used in wpstarter_categorized_blog.
+ * Flush out the transients used in {%= prefix %}_categorized_blog.
  */
-function wpstarter_category_transient_flusher() {
+function {%= prefix %}_category_transient_flusher() {
 	// Like, beat it. Dig?
 	delete_transient( 'all_the_cool_cats' );
 }
-add_action( 'edit_category', 'wpstarter_category_transient_flusher' );
-add_action( 'save_post',     'wpstarter_category_transient_flusher' );
+add_action( 'edit_category', '{%= prefix %}_category_transient_flusher' );
+add_action( 'save_post',     '{%= prefix %}_category_transient_flusher' );

@@ -1,4 +1,5 @@
 {
 	"sass/theme.scss": "sass/{%= js_safe_name %}.scss",
+	"js/theme.js": "js/{%= js_safe_name %}.js",
 	"languages/theme.pot": "languages/{%= prefix %}.pot"
 }

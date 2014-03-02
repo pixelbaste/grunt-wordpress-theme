@@ -90,7 +90,7 @@ get_header(); ?>
 
 			<?php endwhile; ?>
 
-			<?php wpstarter_paging_nav(); ?>
+			<?php {%= prefix %}_paging_nav(); ?>
 
 		<?php else : ?>
 

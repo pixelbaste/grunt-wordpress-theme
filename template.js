@@ -35,12 +35,11 @@ exports.template = function( grunt, init, done ) {
 		init.prompt( 'author_name' ),
 		init.prompt( 'author_email' ),
 		init.prompt( 'author_url' ),
-		init.prompt( 'distpath' ), 'Path of final distribution'
-		{
-			name: 'css_type',
-			message: 'CSS Preprocessor: Will you use "Sass", "LESS", or "none" for CSS with this project?',
-			default: 'Sass'
-		}
+        {
+            name   : 'distribution_path',
+            message: 'Distribution Path',
+            default: 'dist/'
+        }
 	], function( err, props ) {
 		props.keywords = [];
 		props.version = '0.1.0';

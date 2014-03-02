@@ -12,7 +12,7 @@ if ( ! isset( $content_width ) ) {
 	$content_width = 640; /* pixels */
 }
 
-if ( ! function_exists( 'wpstarter_setup' ) ) :
+if ( ! function_exists( '{%= prefix %}_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  *
@@ -20,7 +20,7 @@ if ( ! function_exists( 'wpstarter_setup' ) ) :
  * runs before the init hook. The init hook is too late for some features, such
  * as indicating support for post thumbnails.
  */
-function wpstarter_setup() {
+function {%= prefix %}_setup() {
 
 	/*
 	 * Make theme available for translation.
@@ -56,13 +56,13 @@ function wpstarter_setup() {
 		'gallery',
 	) );
 }
-endif; // wpstarter_setup
-add_action( 'after_setup_theme', 'wpstarter_setup' );
+endif; // {%= prefix %}_setup
+add_action( 'after_setup_theme', '{%= prefix %}_setup' );
 
 /**
  * Register widgetized area and update sidebar with default widgets.
  */
-function wpstarter_widgets_init() {
+function {%= prefix %}_widgets_init() {
 	register_sidebar( array(
 		'name'          => __( 'Sidebar', '{%= prefix %}' ),
 		'id'            => 'sidebar-1',
@@ -72,20 +72,20 @@ function wpstarter_widgets_init() {
 		'after_title'   => '</h1>',
 	) );
 }
-add_action( 'widgets_init', 'wpstarter_widgets_init' );
+add_action( 'widgets_init', '{%= prefix %}_widgets_init' );
 
 /**
  * Enqueue scripts and styles.
  */
-function wpstarter_scripts() {
+function {%= prefix %}_scripts() {
 	wp_enqueue_style( '{%= prefix %}-style', get_template_directory_uri().'/_/css/{%= js_safe_name %}.css' );
 
-	wp_enqueue_script( '{%= prefix %}-navigation', get_template_directory_uri() . '/_/js/navigation.js', array(), '20120206', true );
+	wp_enqueue_script( '{%= prefix %}-scripts', get_template_directory_uri() . '/_/js/{%= js_safe_name %}.js', array(), '20120206', true );
 
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
-add_action( 'wp_enqueue_scripts', 'wpstarter_scripts' );
+add_action( 'wp_enqueue_scripts', '{%= prefix %}_scripts' );
 

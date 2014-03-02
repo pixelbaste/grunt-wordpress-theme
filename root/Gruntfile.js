@@ -13,9 +13,9 @@ module.exports = function(grunt) {
             target: {
             files: [{
                   expand: true,
-                  cwd: '{%= distpath %}/_/js/pre-min',
+                  cwd: '{%= distribution_path %}/_/js/pre-min',
                   src: '**/*.js',
-                  dest: '{%= distpath %}/_/js/'
+                  dest: '{%= distribution_path %}/_/js/'
               }]
             }
         },
@@ -23,14 +23,14 @@ module.exports = function(grunt) {
             dev: {                    // Another target
                     options: {
                         sassDir: 'sass',
-                        cssDir: '{%= distpath %}/_/css',
+                        cssDir: '{%= distribution_path %}/_/css',
                         environment: 'development'
                     }
                 },
             dist: {                    // Another target
                 options: {
                     sassDir: 'sass',
-                    cssDir: '{%= distpath %}/_/css',
+                    cssDir: '{%= distribution_path %}/_/css',
                     environment: 'production',
                     outputStyle: 'compressed',
                     force: true
@@ -47,17 +47,17 @@ module.exports = function(grunt) {
               "universal-selector": false,
               "adjoining-classes": false
             },
-            src: ['{%= distpath %}/_/css/styles.css']
+            src: ['{%= distribution_path %}/_/css/styles.css']
           }
         },
         concat: {
             dist: {
                 src: ['js/vendor/*.js', 'js/includes/*.js','js/*.js'],
-                    dest: '{%= distpath %}/_/js/{%= js_safe_name %}.js'
+                    dest: '{%= distribution_path %}/_/js/{%= js_safe_name %}.js'
             }
         },
         jshint: {
-            afterconcat: ['{%= distpath %}/_/js/{%= js_safe_name %}.js']
+            afterconcat: ['{%= distribution_path %}/_/js/{%= js_safe_name %}.js']
           },
         imagemin: {                          // Task
             dynamic: {                         // Another target
@@ -65,7 +65,7 @@ module.exports = function(grunt) {
                 expand: true,                  // Enable dynamic expansion
                 cwd: 'img/',                   // Src matches are relative to this path
                 src: ['**/*.{png,jpg,gif}'],   // Actual patterns to match
-                dest: '{%= distpath %}/_/img/'                  // Destination path prefix
+                dest: '{%= distribution_path %}/_/img/'                  // Destination path prefix
               }]
             }
           },
@@ -74,11 +74,11 @@ module.exports = function(grunt) {
                 files: [
 
                   // includes files within path and its sub-directories
-                  {expand: true, src: ['fonts/**'], dest: '{%= distpath %}/_/'},
-                  {expand: true, cwd: 'templates/', src: ['**'], dest: '{%= distpath %}/'},
-                  {expand: true, cwd: 'behaviors/', src: ['**'], dest: '{%= distpath %}/'},
-                  {expand: true, cwd: 'js/vendor-exclude', src: ['**'], dest: '{%= distpath %}/_/js/vendor'},
-                  {expand: true, cwd: '{%= distpath %}/_/js/', src: ['**'], dest: '{%= distpath %}/_/js/pre-min'}
+                  {expand: true, src: ['fonts/**'], dest: '{%= distribution_path %}/_/'},
+                  {expand: true, cwd: 'templates/', src: ['**'], dest: '{%= distribution_path %}/'},
+                  {expand: true, cwd: 'behaviors/', src: ['**'], dest: '{%= distribution_path %}/'},
+                  {expand: true, cwd: 'js/vendor-exclude', src: ['**'], dest: '{%= distribution_path %}/_/js/vendor'},
+                  {expand: true, cwd: '{%= distribution_path %}/_/js/', src: ['**'], dest: '{%= distribution_path %}/_/js/pre-min'}
 
                 ]
               }
