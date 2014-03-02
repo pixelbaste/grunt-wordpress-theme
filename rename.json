@@ -1,0 +1,4 @@
+{
+	"sass/theme.scss": "sass/{%= js_safe_name %}.scss",
+	"languages/theme.pot": "languages/{%= prefix %}.pot"
+}
