@@ -14,7 +14,7 @@ get_header(); ?>
 
 			<?php get_template_part( 'partials/content', 'single' ); ?>
 
-			<?php {%= prefix %}_post_nav(); ?>
+			<?php \PixelBaste\TemplateTags::{%= prefix %}_post_nav(); ?>
 
 			<?php
 				// If comments are open or we have at least one comment, load up the comment template

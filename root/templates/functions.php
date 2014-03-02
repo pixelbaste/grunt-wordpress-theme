@@ -4,7 +4,7 @@
  *
  * @package {%= prefix %}
  */
-require(__DIR__.'/inc/template-tags.php');
+require(__DIR__ . '/Pixelbaste/TemplateTags.php');
 
 /**
  * Set the content width based on the theme's design and stylesheet.

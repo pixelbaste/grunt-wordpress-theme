@@ -31,7 +31,7 @@ get_header(); ?>
 
 			<?php endwhile; ?>
 
-			<?php {%= prefix %}_paging_nav(); ?>
+			<?php \PixelBaste\TemplateTags::{%= prefix %}_paging_nav(); ?>
 
 		<?php else : ?>
 
